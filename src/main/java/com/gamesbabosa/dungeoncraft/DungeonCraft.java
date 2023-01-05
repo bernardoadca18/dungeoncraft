@@ -1,5 +1,6 @@
 package com.gamesbabosa.dungeoncraft;
 
+import com.gamesbabosa.dungeoncraft.item.ModItems;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.BlockItem;
@@ -32,6 +33,9 @@ public class DungeonCraft
     public DungeonCraft()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModItems.register(modEventBus);
+
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
     }
